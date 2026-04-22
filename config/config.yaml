@@ -1,0 +1,83 @@
+jarvis:
+  name: Zatt
+  wakeWord: zatt
+  language: es
+  debug: false
+voice:
+  stt:
+    engine: groq
+    model: whisper-1
+    language: es
+    useLocal: false
+  tts:
+    engine: edge-tts
+    voice: Elena
+    rate: 180
+    edgeTtsVoice: es-AR-ElenaNeural
+  wakeWord:
+    engine: simple
+    sensitivity: 0.5
+  audio:
+    sampleRate: 16000
+    channels: 1
+    chunkSize: 1280
+llm:
+  provider: ollama
+  temperature: 0.7
+  maxTokens: 1024
+  systemPrompt: >
+    Eres Zatt, un asistente de inteligencia artificial personal avanzado.
+
+    Sos inteligente, eficiente y hablás de forma directa y concisa.
+
+    Cuando el usuario te pida hacer algo en el sistema, ejecutá la acción y
+    confirmá.
+
+    Respondé siempre en el idioma del usuario.
+providers:
+  ollama:
+    baseUrl: http://localhost:11434
+    model: llama3.1:8b
+  openai:
+    apiKey: ''
+    model: gpt-4o-mini
+  anthropic:
+    apiKey: ''
+    model: claude-sonnet-4-6
+  groq:
+    apiKey: ''  # set GROQ_API_KEY in .env
+    model: llama-3.3-70b-versatile
+  openrouter:
+    apiKey: ''
+    model: meta-llama/llama-3.2-3b-instruct:free
+    baseUrl: https://openrouter.ai/api/v1
+memory:
+  enabled: true
+  maxHistory: 20
+  contextWindow: 10
+  dbPath: data/memory.db
+ui:
+  enabled: true
+  position: bottom-right
+  theme: dark
+  opacity: 0.85
+  alwaysOnTop: true
+  width: 120
+  height: 120
+  accentColor: '#00d4ff'
+  showWaveform: false
+  startMinimized: false
+plugins:
+  enabled: true
+  autoLoad: true
+system:
+  logLevel: info
+  logFile: logs/jarvis.log
+integrations:
+  webSearch:
+    enabled: true
+    engine: duckduckgo
+    maxResults: 5
+  whatsapp:
+    enabled: false
+    method: selenium

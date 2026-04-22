@@ -1,0 +1,38 @@
+{
+  "name": "jarvis",
+  "version": "1.0.0",
+  "description": "Asistente de IA personal avanzado",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron . --disable-gpu --no-sandbox",
+    "cli": "ts-node src/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.0",
+    "axios": "^1.6.0",
+    "conf": "^12.0.0",
+    "dotenv": "^16.3.0",
+    "electron-store": "^8.1.0",
+    "form-data": "^4.0.5",
+    "groq-sdk": "^0.4.0",
+    "js-yaml": "^4.1.0",
+    "node-record-lpcm16": "^1.0.1",
+    "openai": "^4.28.0",
+    "pino": "^8.18.0",
+    "pino-pretty": "^11.0.0",
+    "say": "^0.16.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.0",
+    "electron": "^29.0.0",
+    "electron-vite": "^2.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0"
+  }
+}

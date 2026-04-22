@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["ES2022", "DOM"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@voice/*": ["src/voice/*"],
+      "@llm/*": ["src/llm/*"],
+      "@plugins/*": ["src/plugins/*"],
+      "@system/*": ["src/system/*"],
+      "@integrations/*": ["src/integrations/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "ts-node": {
+    "files": true,
+    "transpileOnly": false
+  },
+  "exclude": ["node_modules", "dist", "src/ui/renderer/app.ts", "src/ui/renderer/vite.config.ts"]
+}
