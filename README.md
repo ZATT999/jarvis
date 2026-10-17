@@ -5,7 +5,7 @@ Asistente de inteligencia artificial personal avanzado, ejecutado localmente con
 ## Instalación rápida
 
 ```bash
-cd /dev/jarvis
+cd jarvis
 bash install.sh
 ```
 
@@ -24,7 +24,7 @@ npm run dev
 
 ## Proveedores de LLM
 
-Editá `config/config.yaml`:
+Edita `config/config.yaml`:
 
 ```yaml
 llm:
@@ -41,19 +41,21 @@ llm:
 
 ## Comandos de voz
 
-| Decís...                              | Acción                    |
+Los plugins integrados reconocen frases como las siguientes. Los patrones están definidos en `src/plugins/builtin/` y aceptan las formas verbales exactas de la tabla (por ejemplo, `abrí`, `cerrá`, `buscá`, `listá`); cualquier otra frase se envía al LLM.
+
+| Frase                                 | Acción                    |
 |---------------------------------------|---------------------------|
-| "Jarvis, abrí Firefox"               | Abre Firefox              |
-| "Jarvis, qué hora es"                | Dice la hora              |
+| "Jarvis, abrí Firefox"                | Abre Firefox              |
+| "Jarvis, qué hora es"                 | Dice la hora              |
 | "Jarvis, buscá clima en Buenos Aires" | Busca en DuckDuckGo       |
-| "Jarvis, ejecutá ls -la"             | Ejecuta comando terminal  |
-| "Jarvis, listá archivos del Desktop" | Lista el escritorio       |
-| "Jarvis, cerré Spotify"              | Cierra la aplicación      |
-| "Jarvis, volumen 50"                 | Ajusta volumen al 50%     |
+| "Jarvis, ejecutá ls -la"              | Ejecuta un comando en la terminal |
+| "Jarvis, listá archivos del Desktop"  | Lista el escritorio       |
+| "Jarvis, cerrá Spotify"               | Cierra la aplicación      |
+| "Jarvis, volumen 50"                  | Ajusta el volumen al 50%  |
 
 ## Agregar un plugin
 
-1. Creá `src/plugins/builtin/miPlugin.ts`:
+1. Crea `src/plugins/builtin/miPlugin.ts`:
 
 ```typescript
 import { BasePlugin, PluginCommand } from '../base'
@@ -74,9 +76,9 @@ export default class MiPlugin extends BasePlugin {
 }
 ```
 
-2. Reiniciá Jarvis — el plugin se carga automáticamente.
+2. Reinicia Jarvis; el plugin se carga automáticamente.
 
-Ver ejemplo completo en `src/plugins/examples/reminderPlugin.ts`.
+Consulta el ejemplo completo en `src/plugins/examples/reminderPlugin.ts`.
 
 ## Estructura del proyecto
 
