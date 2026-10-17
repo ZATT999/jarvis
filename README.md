@@ -2,6 +2,22 @@
 
 Asistente de inteligencia artificial personal avanzado, ejecutado localmente con interfaz flotante, activación por voz y soporte para múltiples proveedores de LLM.
 
+## Descargas
+
+Descarga el instalador para tu sistema desde la [última versión](https://github.com/ZATT999/jarvis/releases/latest).
+
+| Sistema | Archivo |
+|---------|---------|
+| Windows 10/11 (x64) | `Jarvis-1.0.0-windows-x64-setup.exe` |
+| Linux (cualquier distribución) | `Jarvis-1.0.0-linux-x86_64.AppImage` |
+| Debian / Ubuntu | `Jarvis-1.0.0-linux-amd64.deb` |
+
+> **Nota:** los instaladores no están firmados digitalmente.
+> - **Windows:** si SmartScreen bloquea el instalador, pulsa **Más información → Ejecutar de todas formas**.
+> - **Linux (AppImage):** dale permiso de ejecución antes de abrirlo: `chmod +x Jarvis-1.0.0-linux-x86_64.AppImage`.
+>
+> macOS no está disponible por ahora.
+
 ## Instalación rápida
 
 ```bash
