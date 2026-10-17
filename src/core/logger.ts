@@ -1,9 +1,23 @@
 import pino from 'pino'
 import { join } from 'path'
+import { homedir } from 'os'
 import { mkdirSync } from 'fs'
 
-const logDir = join(process.cwd(), 'logs')
-mkdirSync(logDir, { recursive: true })
+// Prefer ./logs (dev/CLI); fall back to ~/.jarvis/logs when the cwd is not writable
+// (e.g. packaged builds launched from "/" or a read-only install directory).
+function resolveLogDir(): string {
+  for (const dir of [join(process.cwd(), 'logs'), join(homedir(), '.jarvis', 'logs')]) {
+    try {
+      mkdirSync(dir, { recursive: true })
+      return dir
+    } catch {
+      // try next candidate
+    }
+  }
+  return join(homedir(), '.jarvis', 'logs')
+}
+
+const logDir = resolveLogDir()
 
 const transport = pino.transport({
   targets: [

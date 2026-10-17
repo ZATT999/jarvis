@@ -81,7 +81,12 @@ class Config {
   }
 
   private saveUserConfig() {
-    writeFileSync(USER_CONFIG, yaml.dump(this.data), 'utf8')
+    try {
+      writeFileSync(USER_CONFIG, yaml.dump(this.data), 'utf8')
+    } catch (err) {
+      // Packaged builds install into a read-only location; keep the change in memory only.
+      console.warn(`[config] could not persist ${USER_CONFIG}: ${(err as Error).message}`)
+    }
   }
 
   reload() {
